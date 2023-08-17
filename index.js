@@ -9,9 +9,19 @@ const port = process.env.PORT || 9900;
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dl2nf.mongodb.net/?retryWrites=true&w=majority`;
+// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dl2nf.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.dl2nf.mongodb.net/`;
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+// .then(() => {
+//     app.listen(port, () =>
+//         logger.info(`🚀 App listening on port http://localhost:${port}`)
+//     )
+// })
+// .catch((err) => {
+//     console.log(err)
+//     process.exit(1)
+// })
 
 async function run() {
     try {
